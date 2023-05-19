@@ -27,7 +27,7 @@ mysql> USE Internet_TV;
 
 ・チャンネルテーブル
 
-mysql
+```mysql
 
 CREATE TABLE Channels (
     ChannelID INT AUTO_INCREMENT,
@@ -37,7 +37,7 @@ CREATE TABLE Channels (
 
 ・ジャンルテーブル
 
-mysql
+```mysql
 
 CREATE TABLE Genres (
     GenreID INT AUTO_INCREMENT,
@@ -47,7 +47,7 @@ CREATE TABLE Genres (
 
 ・番組テーブル
 
-mysql
+```mysql
 
 CREATE TABLE Programs (
     ProgramID INT AUTO_INCREMENT,
@@ -57,7 +57,7 @@ CREATE TABLE Programs (
 
 ・番組＆ジャンルの中間テーブル
 
-mysql
+```mysql
 
 CREATE TABLE Program_Genre (
     ProgramID INT NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE Program_Genre (
 
 ・シーズンテーブル
 
-mysql
+```mysql
 
 CREATE TABLE Seasons (
     SeasonID INT AUTO_INCREMENT,
@@ -81,7 +81,7 @@ CREATE TABLE Seasons (
 
 ・エピソードテーブル
 
-mysql
+```mysql
 
 CREATE TABLE Episodes (
     EpisodeID INT AUTO_INCREMENT,
@@ -99,7 +99,7 @@ CREATE TABLE Episodes (
 
 ・番組スケジュールテーブル
 
-mysql
+```mysql
 
 CREATE TABLE BroadcastSchedules (
     ScheduleID INT AUTO_INCREMENT,
@@ -116,7 +116,7 @@ CREATE TABLE BroadcastSchedules (
 
 ・視聴数テーブル
 
-mysql
+```mysql
 
 CREATE TABLE ViewCounts (
     ChannelID INT NOT NULL,
