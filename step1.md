@@ -30,73 +30,73 @@ KPIとして、チャンネルの番組枠のエピソードごとに視聴数�
 
 # Tables
 
-## チャンネルテーブル
+## Broadcast Schedules
 
-| カラム名 | データ型 | NULL | キー | 初期値 | AUTO INCRIMENT |
+| Field | Type | Null | Key | Default | Extra |
 | --- | --- | --- | --- | --- | --- |
-| チャンネルID | INT | No | 主キー |  | YES |
-| チャンネル名 | CHAR(255) | No |  |  |  |
+| ScheduleID | int | NO | PRI | NULL | auto_increment |
+| ChannelID | int | NO | MUL | NULL |  |
+| EpisodeID | int | NO | MUL | NULL |  |
+| DayOfWeek | char(255) | NO |  | NULL |  |
+| StartTime | time | NO |  | NULL |  |
+| EndTime | time | NO |  | NULL |  |
+| BroadcastDate | date | NO |  | 2023-05-18 |  |
 
-## 番組スケジュールテーブル
+## Channels
 
-| カラム名 | データ型 | NULL | キー | 初期値 | AUTO INCRIMENT |
+| Field | Type | Null | Key | Default | Extra |
 | --- | --- | --- | --- | --- | --- |
-| スケジュールID | INT | No | 主キー |  | YES |
-| チャンネルID | INT | No | 外部キー |  |  |
-| エピソードID | INT | No | 外部キー |  |  |
-| 曜日 | CHAR(255) | No |  |  |  |
-| 開始時間 | TIME | No |  |  |  |
-| 終了時間 | TIME | No |  |  |  |
-| 放送日時 | DATE | No |  | 2023-05-18 |  |
+| ChannelID | int | NO | PRI | NULL | auto_increment |
+| ChannelName | char(255) | NO |  | NULL |  |
 
-## 番組
+## Episodes
 
-| カラム名 | データ型 | NULL | キー | 初期値 | AUTO INCRIMENT |
+| Field | Type | Null | Key | Default | Extra |
 | --- | --- | --- | --- | --- | --- |
-| 番組ID | INT | No | 主キー |  | YES |
-| タイトル | TEXT | No |  |  |  |
+| EpisodeID | int | NO | PRI | NULL | auto_increment |
+| SeasonID | int | YES | MUL | NULL |  |
+| SeasonNumber | int | YES |  | NULL |  |
+| EpisodeNumber | int | YES |  | NULL |  |
+| Title | text | NO |  | NULL |  |
+| EpisodeDetail | text | NO |  | NULL |  |
+| Duration | time | NO |  | NULL |  |
+| ReleaseDate | date | NO |  | NULL |  |
+| ViewCount | int | NO |  | NULL |  |
 
-## シーズンテーブル
+## Genres
 
-| カラム名 | データ型 | NULL | キー | 初期値 | AUTO INCRIMENT |
+| Field | Type | Null | Key | Default | Extra |
 | --- | --- | --- | --- | --- | --- |
-| シーズンID | INT | No | 主キー |  | YES |
-| 番組ID | INT | No | 外部キー |  |  |
-| シーズン名 | TEXT | No |  |  |  |
+| GenreID | int | NO | PRI | NULL | auto_increment |
+| GenreName | char(255) | NO |  | NULL |  |
 
-## エピソードテーブル
+## Program Genre
 
-| カラム名 | データ型 | NULL | キー | 初期値 | AUTO INCRIMENT |
+| Field | Type | Null | Key | Default | Extra |
 | --- | --- | --- | --- | --- | --- |
-| エピソードID | INT | No | 主キー |  | YES |
-| シーズンID | INT | YES | 外部キー |  |  |
-| シーズン数 | INT | YES |  |  |  |
-| エピソード数 | INT | YES |  |  |  |
-| タイトル | TEXT | No |  |  |  |
-| エピソード詳細 | TEXT | No |  |  |  |
-| 動画時間 | TIME | No |  |  |  |
-| 公開日 | DATE | No |  |  |  |
-| 視聴数 | INT | No |  |  |  |
+| ProgramID | int | NO | PRI | NULL |  |
+| GenreID | int | NO | PRI | NULL |  |
 
-## ジャンルテーブル
+## Programs
 
-| カラム名 | データ型 | NULL | キー | 初期値 | AUTO INCRIMENT |
+| Field | Type | Null | Key | Default | Extra |
 | --- | --- | --- | --- | --- | --- |
-| ジャンルID | INT | No | 主キー |  | YES |
-| ジャンル名 | CHAR(255) | No |  |  |  |
+| ProgramID | int | NO | PRI | NULL | auto_increment |
+| Title | text | NO |  | NULL |  |
 
-## 番組とジャンルの中間テーブル
+## Seasons
 
-| カラム名 | データ型 | NULL | キー | 初期値 | AUTO INCRIMENT |
+| Field | Type | Null | Key | Default | Extra |
 | --- | --- | --- | --- | --- | --- |
-| 番組ID | INT | No | 主キー |  |  |
-| ジャンルID | INT | No | 主キー |  |  |
+| SeasonID | int | NO | PRI | NULL | auto_increment |
+| ProgramID | int | NO | MUL | NULL |  |
+| SeasonName | text | NO |  | NULL |  |
 
-## 視聴数テーブル
+## View Counts
 
-| カラム名 | データ型 | NULL | キー | 初期値 | AUTO INCRIMENT |
+| Field | Type | Null | Key | Default | Extra |
 | --- | --- | --- | --- | --- | --- |
-| チャンネルID | INT | No | 主キー |  |  |
-| スケジュールID | INT | No | 主キー |  |  |
-| エピソードID | INT | No | 主キー |  |  |
-| 視聴数 | INT | No |  |  |  |
+| ChannelID | int | NO | PRI | NULL |  |
+| ScheduleID | int | NO | PRI | NULL |  |
+| EpisodeID | int | NO | PRI | NULL |  |
+| ViewCount | int | NO |  | NULL |  |
