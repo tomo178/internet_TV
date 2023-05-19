@@ -45,6 +45,7 @@ CREATE TABLE Genres (
     GenreName CHAR(255) NOT NULL,
     PRIMARY KEY (GenreID)
 );
+```
 
 ・番組テーブル
 
@@ -55,6 +56,7 @@ CREATE TABLE Programs (
     Title TEXT NOT NULL,
     PRIMARY KEY (ProgramID)
 );
+```
 
 ・番組＆ジャンルの中間テーブル
 
@@ -67,6 +69,7 @@ CREATE TABLE Program_Genre (
     FOREIGN KEY (GenreID) REFERENCES Genres(GenreID),
     PRIMARY KEY (ProgramID, GenreID)
 );
+```
 
 ・シーズンテーブル
 
@@ -79,6 +82,7 @@ CREATE TABLE Seasons (
     PRIMARY KEY (SeasonID),
     FOREIGN KEY (ProgramID) REFERENCES Programs(ProgramID)
 );
+```
 
 ・エピソードテーブル
 
@@ -97,6 +101,7 @@ CREATE TABLE Episodes (
     PRIMARY KEY (EpisodeID),
     FOREIGN KEY (SeasonID) REFERENCES Seasons(SeasonID)
 );
+```
 
 ・番組スケジュールテーブル
 
@@ -114,6 +119,7 @@ CREATE TABLE BroadcastSchedules (
     FOREIGN KEY (ChannelID) REFERENCES Channels(ChannelID),
     FOREIGN KEY (EpisodeID) REFERENCES Episodes(EpisodeID)
 );
+```
 
 ・視聴数テーブル
 
@@ -129,3 +135,4 @@ CREATE TABLE ViewCounts (
     FOREIGN KEY (EpisodeID) REFERENCES Episodes(EpisodeID),
     PRIMARY KEY (ChannelID, ScheduleID, EpisodeID)
 );
+```
