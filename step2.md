@@ -34,6 +34,7 @@ CREATE TABLE Channels (
     ChannelName CHAR(255) NOT NULL,
     PRIMARY KEY (ChannelID)
 );
+```
 
 ・ジャンルテーブル
 
