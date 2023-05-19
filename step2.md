@@ -262,3 +262,5 @@ mysql> INSERT INTO ViewCounts (ChannelID, ScheduleID, EpisodeID, ViewCount) VALU
     -> (1, 20, 20, 14500);
 ```
 
+
+以上でデータベースの作成とデータの入力が完成です。
